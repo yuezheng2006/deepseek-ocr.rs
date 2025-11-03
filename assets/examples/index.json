@@ -1,0 +1,56 @@
+{
+  "version": "1.0",
+  "last_updated": "2024-11-03",
+  "categories": {
+    "invoices": [
+      {
+        "image": "vat_invoice.png",
+        "result": "vat_invoice_result.txt",
+        "size": 285718,
+        "result_size": 6752
+      }
+    ],
+    "reports": [
+      {
+        "image": "report_summary.png",
+        "result": "report_summary_result.txt",
+        "size": 120926,
+        "result_size": 5783
+      },
+      {
+        "image": "sample_report.png",
+        "result": "sample_report_result.txt",
+        "size": 424332,
+        "result_size": 6651
+      }
+    ],
+    "forms": [
+      {
+        "image": "sample_form.png",
+        "result": "sample_form_result.txt",
+        "size": 285718,
+        "result_size": 5910
+      }
+    ],
+    "receipts": [
+      {
+        "image": "receipt_menu.png",
+        "result": "receipt_menu_result.txt",
+        "size": 4224664,
+        "result_size": 3556
+      },
+      {
+        "image": "receipt_pos.png",
+        "result": "receipt_pos_result.txt",
+        "size": 595956,
+        "result_size": 6267
+      },
+      {
+        "image": "sample_receipt.png",
+        "result": "sample_receipt_result.txt",
+        "size": 424332,
+        "result_size": 6098
+      }
+    ]
+  }
+}

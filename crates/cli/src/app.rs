@@ -184,17 +184,23 @@ pub fn run(args: Args) -> Result<()> {
         .into_iter()
         .next()
         .unwrap_or_default();
+    
+    let token_ids: Vec<u32> = generated_tokens
+        .iter()
+        .filter_map(|&id| u32::try_from(id).ok())
+        .collect();
+    
+    // 解码时跳过特殊token，获得更干净的输出
     let decoded = tokenizer
-        .decode(
-            &generated_tokens
-                .iter()
-                .filter_map(|&id| u32::try_from(id).ok())
-                .collect::<Vec<_>>(),
-            true,
-        )
+        .decode(&token_ids, true)
         .unwrap_or_default();
+    
     let normalized = normalize_text(&decoded);
+    info!("Normalized length: {} chars", normalized.len());
     info!("Final output:\n{normalized}");
+    
+    // 直接输出纯文本结果到标准输出（不含日志）
+    println!("{}", normalized);
 
     if let Some(session) = bench_session {
         let report = session.finalize()?;

@@ -1,0 +1,99 @@
+[2m2025-11-03T05:09:22.121820Z[0m [32m INFO[0m [2mdeepseek_ocr_cli::app[0m[2m:[0m Using configuration /Users/vincentyang/Library/Application Support/deepseek-ocr/config.toml (active model `deepseek-ocr`)
+[2m2025-11-03T05:09:22.134794Z[0m [32m INFO[0m [2mdeepseek_ocr_cli::app[0m[2m:[0m Loading model `deepseek-ocr` (device=Metal(MetalDevice(DeviceId(1))), dtype=F16) using config /Users/vincentyang/Library/Caches/deepseek-ocr/models/deepseek-ocr/config.json
+[2m2025-11-03T05:09:33.284687Z[0m [32m INFO[0m [2mdeepseek_ocr_cli::app[0m[2m:[0m Model ready in 11.15s (flash-attn: false, weights=/Users/vincentyang/Library/Caches/deepseek-ocr/models/deepseek-ocr/model.safetensors)
+[2m2025-11-03T05:09:33.519859Z[0m [32m INFO[0m [2mdeepseek_ocr_core::model[0m[2m:[0m Preparing 6 image crops for vision input
+[2m2025-11-03T05:09:48.287731Z[0m [32m INFO[0m [2mdeepseek_ocr_cli::app[0m[2m:[0m Prompt prepared: 913 tokens (893 image tokens)
+[2m2025-11-03T05:09:48.373413Z[0m [32m INFO[0m [2mdeepseek_ocr_cli::app[0m[2m:[0m Starting generation with requested budget 512 tokens
+[2m2025-11-03T05:09:48.373450Z[0m [32m INFO[0m [2mdeepseek_ocr_cli::app[0m[2m:[0m --- Generation start ---
+text[[620, 74, 833, 90]]
+with the coefficients of each variable aligned in columns, the matrix  
+
+equation[[718, 95, 833, 145]]  
+
+text[[620, 145, 872, 162]]
+is called the coefficient matrix (or matrix of coefficients) of the system (3), and  
+
+equation[[718, 165, 892, 216]]  
+
+text[[620, 216, 893, 279]]
+is called the augmented matrix of the system. (The second row here contains a zero because the second equation could be written as \(0 \cdot x_{1} + 2x_{2} - 8x_{3} = 8\) .) An augmented matrix of a system consists of the coefficient matrix with an added column containing the constants from the right sides of the equations.  
+
+text[[620, 279, 893, 355]]
+The size of a matrix tells how many rows and columns it has. The augmented matrix (4) above has 3 rows and 4 columns and is called a \(3 \times 4\) (read "3 by 4") matrix. If \(m\) and \(n\) are positive integers, an \(m \times n\) matrix is a rectangular array of numbers with \(m\) rows and \(n\) columns. (The number of rows always comes first.) Matrix notation will simplify the calculations in the examples that follow.  
+
+text[[768, 384, 903, 408]]
+Convert this to markdown  
+
+text[[225, 472, 331, 499]]
+deepseek- ocr  
+
+sub_title[[255, 505, 434, 548]]
+## Matrix Notation  
+
+text[[255, 556, 903, 585]]
+The essential information of a linear system can be recorded compactly in a rectangular array called a matrix. Given the system  
+
+equation[[526, 600, 642, 696]]
+\[x_{1} - 2x_{2} + x_{3} = 0\] \[2x_{2} - 8x_{3} = 8\] \[5x_{1} - 5x_{3} =[2m2025-11-03T05:10:25.419977Z[0m [32m INFO[0m [2mdeepseek_ocr_cli::app[0m[2m:[0m --- Generation done in 37.05s ---
+[2m2025-11-03T05:10:25.421079Z[0m [32m INFO[0m [2mdeepseek_ocr_cli::app[0m[2m:[0m Normalized length: 1506 chars
+[2m2025-11-03T05:10:25.421108Z[0m [32m INFO[0m [2mdeepseek_ocr_cli::app[0m[2m:[0m Final output:
+text[[620, 74, 833, 90]]
+with the coefficients of each variable aligned in columns, the matrix  
+
+equation[[718, 95, 833, 145]]  
+
+text[[620, 145, 872, 162]]
+is called the coefficient matrix (or matrix of coefficients) of the system (3), and  
+
+equation[[718, 165, 892, 216]]  
+
+text[[620, 216, 893, 279]]
+is called the augmented matrix of the system. (The second row here contains a zero because the second equation could be written as \(0 \cdot x_{1} + 2x_{2} - 8x_{3} = 8\) .) An augmented matrix of a system consists of the coefficient matrix with an added column containing the constants from the right sides of the equations.  
+
+text[[620, 279, 893, 355]]
+The size of a matrix tells how many rows and columns it has. The augmented matrix (4) above has 3 rows and 4 columns and is called a \(3 \times 4\) (read "3 by 4") matrix. If \(m\) and \(n\) are positive integers, an \(m \times n\) matrix is a rectangular array of numbers with \(m\) rows and \(n\) columns. (The number of rows always comes first.) Matrix notation will simplify the calculations in the examples that follow.  
+
+text[[768, 384, 903, 408]]
+Convert this to markdown  
+
+text[[225, 472, 331, 499]]
+deepseek- ocr  
+
+sub_title[[255, 505, 434, 548]]
+## Matrix Notation  
+
+text[[255, 556, 903, 585]]
+The essential information of a linear system can be recorded compactly in a rectangular array called a matrix. Given the system  
+
+equation[[526, 600, 642, 696]]
+\[x_{1} - 2x_{2} + x_{3} = 0\] \[2x_{2} - 8x_{3} = 8\] \[5x_{1} - 5x_{3} =
+text[[620, 74, 833, 90]]
+with the coefficients of each variable aligned in columns, the matrix  
+
+equation[[718, 95, 833, 145]]  
+
+text[[620, 145, 872, 162]]
+is called the coefficient matrix (or matrix of coefficients) of the system (3), and  
+
+equation[[718, 165, 892, 216]]  
+
+text[[620, 216, 893, 279]]
+is called the augmented matrix of the system. (The second row here contains a zero because the second equation could be written as \(0 \cdot x_{1} + 2x_{2} - 8x_{3} = 8\) .) An augmented matrix of a system consists of the coefficient matrix with an added column containing the constants from the right sides of the equations.  
+
+text[[620, 279, 893, 355]]
+The size of a matrix tells how many rows and columns it has. The augmented matrix (4) above has 3 rows and 4 columns and is called a \(3 \times 4\) (read "3 by 4") matrix. If \(m\) and \(n\) are positive integers, an \(m \times n\) matrix is a rectangular array of numbers with \(m\) rows and \(n\) columns. (The number of rows always comes first.) Matrix notation will simplify the calculations in the examples that follow.  
+
+text[[768, 384, 903, 408]]
+Convert this to markdown  
+
+text[[225, 472, 331, 499]]
+deepseek- ocr  
+
+sub_title[[255, 505, 434, 548]]
+## Matrix Notation  
+
+text[[255, 556, 903, 585]]
+The essential information of a linear system can be recorded compactly in a rectangular array called a matrix. Given the system  
+
+equation[[526, 600, 642, 696]]
+\[x_{1} - 2x_{2} + x_{3} = 0\] \[2x_{2} - 8x_{3} = 8\] \[5x_{1} - 5x_{3} =

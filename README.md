@@ -147,7 +147,7 @@ cargo run -p deepseek-ocr-cli --release -- \
 
 > Tip: `--release` is required for reasonable throughput; debug builds can be 10x slower.
 
-> macOS tip: append `--features metal` to the `cargo run`/`cargo build` commands to compile with Accelerate + Metal backends.
+> macOS tip: append `--features metal,accelerate` to the `cargo run`/`cargo build` commands to compile with Accelerate + Metal backends. See [macOS Guide](#macos-guide) for detailed instructions.
 >
 > CUDA tip (Linux/Windows): append `--features cuda` and run with `--device cuda --dtype f16` to target NVIDIA GPUs—feature is still alpha, so be ready for quirks.
 >
@@ -178,7 +178,7 @@ cargo run -p deepseek-ocr-server --release -- \
 ```
 
 > Keep `--release` on the server as well; the debug profile is far too slow for inference workloads.
-> macOS tip: add `--features metal` to the `cargo run -p deepseek-ocr-server` command when you want the server binary to link against Accelerate + Metal (and pair it with `--device metal` at runtime).
+> macOS tip: add `--features metal,accelerate` to the `cargo run -p deepseek-ocr-server` command when you want the server binary to link against Accelerate + Metal (and pair it with `--device metal` at runtime). See [macOS Guide](#macos-guide) for details.
 >
 > CUDA tip: add `--features cuda` and start the server with `--device cuda --dtype f16` to offload inference to NVIDIA GPUs (alpha-quality support).
 >
@@ -195,11 +195,70 @@ Notes:
 
 ## GPU Acceleration ⚡
 
-- **Metal (macOS 13+ Apple Silicon)** – pass `--device metal --dtype f16` and build binaries with `--features metal` so Candle links against Accelerate + Metal.
+- **Metal (macOS 13+ Apple Silicon)** – pass `--device metal --dtype f16` and build binaries with `--features metal,accelerate` so Candle links against Accelerate + Metal. **Recommended for macOS users!** See [macOS Guide](#macos-guide) below.
 - **CUDA (alpha, NVIDIA GPUs)** – install CUDA 12.2+ toolkits, build with `--features cuda`, and launch the CLI/server with `--device cuda --dtype f16`; still experimental.
 - **Intel MKL (preview)** – install Intel oneMKL and build with `--features mkl` to speed up CPU workloads on x86.
-- For either backend, prefer release builds (e.g. `cargo build --release -p deepseek-ocr-cli --features metal|cuda`) to maximise throughput.
+- For either backend, prefer release builds (e.g. `cargo build --release -p deepseek-ocr-cli --features metal,accelerate`) to maximise throughput.
 - Combine GPU runs with `--max-new-tokens` and crop tuning flags to balance latency vs. quality.
+
+## macOS Guide 🍎
+
+### Quick Start for macOS
+
+```bash
+# 1. Install Rust (if needed)
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# 2. Clone and build with Metal support
+git clone https://github.com/TimmyOVO/deepseek-ocr.rs.git
+cd deepseek-ocr.rs
+cargo build --release -p deepseek-ocr-cli --features metal,accelerate
+
+# 3. Install globally (recommended)
+cargo install --path crates/cli --features metal,accelerate
+
+# 4. Use Metal acceleration
+deepseek-ocr-cli \
+  --prompt "<image>\n<|grounding|>Extract all text." \
+  --image assets/demo1.png \
+  --device metal \
+  --dtype f16 \
+  --max-new-tokens 2048 \
+  2>/dev/null > result.txt
+```
+
+### System Requirements
+
+- **macOS**: 13.0+ (Ventura) or later
+- **Processor**: Apple Silicon (M1/M2/M3/M4) recommended; Intel Mac also supported
+- **Memory**: At least 8GB unified memory (16GB+ recommended)
+- **Disk Space**: At least 15GB (including model files)
+
+### Performance Comparison
+
+| Mode | Model Load | Generation | Memory | Stability |
+|------|-----------|-----------|--------|-----------|
+| **Metal (F16)** | 5-10s | 3-5s/512tokens | ~8GB | ⚠️ Occasional crashes |
+| **CPU (F32)** | 10-15s | 10-15s/512tokens | ~13GB | ✅ Very stable |
+
+### macOS-Specific Notes
+
+1. **Metal Acceleration**: 
+   - Provides **60-75% speed improvement** over CPU mode
+   - Reduces memory usage by **40%**
+   - ⚠️ May occasionally crash (Exit 139) - use CPU mode for batch processing
+
+2. **Common Issues**:
+   - **Metal not available**: Ensure `--features metal,accelerate` is used during compilation
+   - **Crashes**: Switch to CPU mode (`--device cpu --dtype f32`) for stability
+   - **Memory issues**: Close other apps or use CPU mode
+
+3. **Recommendations**:
+   - Use Metal for single recognition tasks (faster)
+   - Use CPU for batch processing (more stable)
+   - Install Xcode Command Line Tools: `xcode-select --install`
+
+For detailed macOS usage guide, see [CLI_USAGE_GUIDE.md](CLI_USAGE_GUIDE.md#macos-专用指南).
 
 ## Repository Layout 🗂️
 

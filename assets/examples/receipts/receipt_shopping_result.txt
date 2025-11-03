@@ -1,0 +1,4 @@
+[2m2025-11-03T06:52:27.669530Z[0m [32m INFO[0m [2mdeepseek_ocr_cli::app[0m[2m:[0m Using configuration /Users/vincentyang/Library/Application Support/deepseek-ocr/config.toml (active model `deepseek-ocr`)
+[2m2025-11-03T06:52:27.678773Z[0m [32m INFO[0m [2mdeepseek_ocr_cli::app[0m[2m:[0m Loading model `deepseek-ocr` (device=Metal(MetalDevice(DeviceId(1))), dtype=F16) using config /Users/vincentyang/Library/Caches/deepseek-ocr/models/deepseek-ocr/config.json
+[2m2025-11-03T06:52:38.139079Z[0m [32m INFO[0m [2mdeepseek_ocr_cli::app[0m[2m:[0m Model ready in 10.46s (flash-attn: false, weights=/Users/vincentyang/Library/Caches/deepseek-ocr/models/deepseek-ocr/model.safetensors)
+[2m2025-11-03T06:52:38.511326Z[0m [31mERROR[0m [2mdeepseek_ocr_cli[0m[2m:[0m CLI failed [3merror[0m[2m=[0mfailed to open image at assets/examples/receipts/receipt_shopping.png
