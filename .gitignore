@@ -5,3 +5,13 @@ target
 DeepSeek-OCR
 baselines/sample
 __pycache__
+
+# 临时脚本文件
+scripts/download_examples.py
+scripts/download_examples.sh
+
+# assets根目录下的临时图片（examples目录中的需要提交）
+assets/*.png
+!assets/examples/**/*.png
+!assets/demo1.png
+!assets/sample_1.png
